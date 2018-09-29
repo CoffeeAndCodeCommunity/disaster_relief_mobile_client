@@ -1,0 +1,18 @@
+page-profile {
+	
+	#profile-name {
+		color: #444;
+		text-align: center;
+	}
+
+	#profile-image {
+		display: block;
+		border-radius: 100px;
+		border: 1px solid #fff;
+		width: 128px;
+		height: 128px;
+		margin: 20px auto 20px;
+		box-shadow: 0px 0px 4px rgba(0,0,0,0.7);
+	}
+
+}

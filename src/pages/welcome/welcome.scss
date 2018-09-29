@@ -1,0 +1,56 @@
+page-welcome {
+    ion-content {
+        background: linear-gradient(rgba(41, 50, 57, 0.3), rgba(62, 70, 76, 0.3)), url('https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/playlists/playlist_584/a06fd5d5-ab8f-46f0-97b4-b726c77d4074/disaster_relief_1200x627.jpg?quality=89&w=800');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; // width: 100%;
+        height: 100vh;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    .toolbar-title {
+        text-align: center;
+    }
+    .content-ios {
+        color: white;
+    }
+    .no-scroll .scroll-content {
+        overflow: hidden;
+    }
+    .btn-login {
+        margin-top: 15px;
+        background-color: white;
+        color: black;
+    }
+    .login-div {
+        margin-left: 12px;
+        margin-right: 12px;
+        .button {
+            font-size: 12px;
+            font-style: bold;
+        }
+        ion-input {
+            font-size: 15px;
+            ::placeholder {
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+        .input-wrapper {
+            height: 40px;
+        }
+    }
+    .text-muted {
+        font-size: 10px;
+        text-align: center;
+        color: aliceblue;
+    }
+    .header-div {
+        color: white;
+        text-align: center;
+        padding-top: 150px;
+        font-weight: bold;
+    }
+}

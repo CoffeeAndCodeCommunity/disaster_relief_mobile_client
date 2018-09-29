@@ -1,0 +1,13 @@
+page-tracked-service-request-list {
+	.toolbar-background {
+    background: map-get($colors, secondary); 
+  }
+  .toolbar-title {
+    text-align: center;
+    color: white;
+  }
+
+  ion-label span {
+    font-size: 10px;
+  }
+}

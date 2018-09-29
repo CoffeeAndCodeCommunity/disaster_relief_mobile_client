@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <img src="assets/img/logo_white.svg"> {{ "QUICK_VIEW" | translate }}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="swipe-bg" no-bounce class="no-scroll">
+
+  <div class="h-full no-cards" [hidden]="!isLoading" horizontal layout center center-center>
+    <div class="ripple-container">
+      <div class="thumb-lg ripple-trigger">
+        <img src="assets/img/logo_black.svg" class="company-logo">
+      </div>
+      <div class="ripple-1"></div>
+      <div class="ripple-2"></div>
+    </div>
+  </div>
+
+  <div class="swipe-container" [hidden]="isLoading || noCards">
+    <div class="h-full wrapper-sm">
+      <div class="card-stack" swing-stack #cardStack [stackConfig]="stackConfig" (throwoutleft)="declined(c)" (throwoutright)="interested(c)">
+        <div class="card-item" #card [style.zIndex]="-1 * i" swing-card *ngFor="let c of cards; trackBy: trackByFn; let i = index">
+          <div [style.backgroundImage]="'url(' + c.image + ')'" class="div-img h-full r-3x"></div>
+          <div class="category-div">
+            <ion-badge item-end class="primary-color">{{c.categories[0].name}}</ion-badge>
+          </div>
+          <div class="state-div">
+            <ion-badge item-end class="primary-color">{{c.state}}</ion-badge>
+          </div>
+          <ion-grid>
+            <ion-row class="card-caption">
+              <ion-col col-10>
+                <div class="font-bold text-xl">{{c.title}}</div>
+              </ion-col>
+              <ion-col col-2 align-self-end justify-content-end>
+                <ion-chip (click)="launchServiceRequestShowPage(c.id)">
+                  <ion-icon name="eye" color="secondary"></ion-icon>
+                </ion-chip>
+                <!-- <button class="text-2x" name="md-information-circle" color="white" (click)="launchServiceRequestShowPage(c.id)"></button> -->
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+          <div class="stamp stamp-like">Save</div>
+          <div class="stamp stamp-nope">Nope</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="text_middle_page" [hidden]="!noCards">
+    <p>You have seen it all
+      <br/>Check back again for more service requests </p>
+  </div>
+
+</ion-content>

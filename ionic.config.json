@@ -1,0 +1,8 @@
+{
+  "name": "disaster_relief_mobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "b2bf6993"
+}

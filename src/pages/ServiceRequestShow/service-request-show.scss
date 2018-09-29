@@ -1,0 +1,90 @@
+page-sr-show {
+
+    .toolbar-background {
+        background: map-get($colors, secondary);
+    }
+    .service-details {
+        padding: 10px;
+    }
+    .small-text-under-image {
+        font-size: 11px;
+        text-align: center;
+        padding-bottom: 0;
+        margin: 0;
+    }
+    #small-text {
+        font-size: 10px;
+        text-align: center;
+        padding-top: 0px;
+        margin-top: 0;
+    }
+    h2 {
+        text-align: center;
+        padding-top: 0;
+        margin: 0;
+    }
+    .full-width {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .bottom-full {
+        position: absolute;
+        bottom: 0;
+    }
+
+    ion-content {
+        overflow-y: hidden;
+    }
+
+    .canRender-div {
+        display: flex; 
+        flex-flow: column; 
+        height: 100%;
+    }
+
+    .category-div {
+        position: absolute; 
+        top: 5px; 
+        right: 5px;
+    }
+
+    .state-div {
+        position: absolute; 
+        top: 5px; 
+        left: 5px;
+    }
+
+    .primary-color {
+        background-color: map-get($colors, primary);
+        color: #fff;
+    }
+
+    .image-height {
+        height: 33%;
+    }
+
+    ion-grid {
+        flex-grow: 1; 
+        padding: 0 0 0 0
+    }
+
+    .row-card {
+        flex-grow: 1
+    }
+
+    ion-scroll {
+        width: 100%; 
+        height: 100%;
+    }
+
+    .submit-button-div {
+        padding: 0 10px 0 10px; 
+        margin: 0 0 0 0;
+    }
+
+    .submit-button {
+        bottom: 5px;
+    }
+}
+

@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ "PROFILE" | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="canRender">
+    <h3 id="profile-name">{{ userProfile.display_name }}</h3>
+    <img id="profile-image" src="{{ userProfile.avatar }}"> 
+    <h6 id="profile-name">{{ userProfile.service_provider.name }}</h6>
+  </div>
+
+  <div>
+    <ion-item>
+      <ion-label>Language</ion-label>
+      <ion-select [(ngModel)]="language" (ionChange)="onSelectChange()">
+        <ion-option *ngFor="let l of languages" [value]="l.locale">{{ l.name }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+</ion-content>

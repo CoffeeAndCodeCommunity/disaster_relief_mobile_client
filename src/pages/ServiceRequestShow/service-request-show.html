@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="canRender" class="canRender-div">
+    <div class="category-div">
+      <ion-badge item-end class="primary-color">{{service_request.categories[0].name}}</ion-badge>
+    </div>
+    <div class="state-div">
+      <ion-badge item-end class="primary-color">{{service_request.state}}</ion-badge>
+    </div>
+    <div *ngIf="service_request.images.length == 1; else slider" class="image-height">
+      <img class="full-width" src="{{service_request.images[0].url}}">
+    </div>
+    <ng-template #slider>
+      <ion-slides pager="true" class="image-height">
+        <ion-slide *ngFor="let image of service_request.images;">
+          <img src="{{image.url}}">
+        </ion-slide>
+      </ion-slides>
+    </ng-template>
+    <ion-grid>
+      <ion-row class="small-text-under-image">
+        <ion-col col-6>
+          Time frame:
+          <ion-badge item-end class="primary-color">{{service_request.time_frame}}</ion-badge>
+        </ion-col>
+        <ion-col col-6>
+          Budget:
+          <ion-badge item-end class="primary-color">{{service_request.budget}}</ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row-card">
+        <ion-card>
+          <ion-scroll scrollY="true">
+            <ion-card-content>
+              <h2 id="show-header">{{service_request.title}}</h2>
+              <p id="small-text">Posted: {{service_request.created}} by {{service_request.user.display_name}}</p>
+              <p class="service-details">{{service_request.details}}</p>
+            </ion-card-content>
+          </ion-scroll>
+        </ion-card>
+      </ion-row>
+      <div class="submit-button-div">
+          <button ion-button full (click)="bidPopup()" class="submit-button">Submit a bid</button>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>
