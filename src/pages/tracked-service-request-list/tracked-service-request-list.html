@@ -3,8 +3,7 @@
 
   <ion-navbar>
     <ion-title>
-        <img src="assets/img/logo_white.svg"> 
-        Saved Requests
+        Saved Events
     </ion-title>
   </ion-navbar>
 
@@ -15,9 +14,9 @@
   <div *ngIf="canRender">
     <ion-list>
       <ion-item-sliding *ngFor="let item of list">
-        <ion-item (click)="launchServiceRequestShowPage(item.service_request.id)" >{{item.service_request.title}} <br/> <span>{{item.creator.display_name}}</span></ion-item>
+        <ion-item (click)="launchEventShowPage(item.event.id)" >{{item.event.title}} <br/> <span>{{item.creator.display_name}}</span></ion-item>
         <ion-item-options>
-          <button ion-button icon-only (click)="launchServiceRequestShowPage(item.service_request.id)" light>
+          <button ion-button icon-only (click)="launchEventShowPage(item.event.id)" light>
             <ion-icon name="eye"></ion-icon>
           </button>
         </ion-item-options>

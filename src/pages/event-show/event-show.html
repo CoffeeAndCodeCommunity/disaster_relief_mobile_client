@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="canRender" class="canRender-div">
+    <div class="image-height">
+      <img class="full-width" src="{{bgImage}}">
+    </div>
+    <ion-grid>
+      <ion-row class="row-card">
+        <ion-card>
+          <ion-scroll scrollY="true">
+            <ion-card-content>
+              <h2 id="show-header">{{event.title}}</h2>
+              <p class="service-details">{{event.description}}</p>
+            </ion-card-content>
+          </ion-scroll>
+        </ion-card>
+      </ion-row>
+     
+    </ion-grid>
+  </div>
+</ion-content>

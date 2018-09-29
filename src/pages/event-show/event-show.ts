@@ -1,25 +1,26 @@
 import { Component } from "@angular/core";
 import { NavController, NavParams, AlertController } from "ionic-angular";
-import { ServiceRequestProvider } from "./../../providers/service-request/service-request";
+import { EventProvider } from "./../../providers/event-request/event-request";
 
 @Component({
   selector: "page-sr-show",
-  templateUrl: "service-request-show.html"
+  templateUrl: "event-show.html"
 })
-export class ServiceRequestShowPage {
+export class EventShowPage {
   service_request: any;
   canRender: boolean = false;
   serviceId: number;
+  bgImage: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private serviceRequestProvider: ServiceRequestProvider,
+    private eventProvider: EventProvider,
     private alertCtrl: AlertController
   ) {}
 
   ngOnInit() {
-    this.serviceId = this.navParams.get("service_request_id");
+    this.serviceId = this.navParams.get("event_id");
     this.renderMe();
   }
 
@@ -28,7 +29,8 @@ export class ServiceRequestShowPage {
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad ServiceRequestShowPage");
+    this.bgImage = 'https://www.worldvision.org/corporate/wp-content/uploads/sites/2/2017/05/Disaster-Relief-Mobile-reduced.jpg'
+    console.log("ionViewDidLoad EventShowPage");
   }
 
   

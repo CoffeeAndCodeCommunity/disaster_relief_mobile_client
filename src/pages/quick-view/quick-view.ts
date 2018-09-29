@@ -1,7 +1,7 @@
 import { EventProvider } from "../../providers/event-request/event-request";
 import { Component, ViewChild, ViewChildren, QueryList } from "@angular/core";
 import { NavController, NavParams, ModalController, App } from "ionic-angular";
-import { ServiceRequestShowPage } from './../ServiceRequestShow/service-request-show';
+import { EventShowPage } from './../event-show/event-show';
 
 import {
   Direction,
@@ -78,8 +78,8 @@ export class QuickViewPage {
     console.log("2 srpData", this.srpData);
   }
 
-  launchServiceRequestShowPage(id) {
-    this.navCtrl.push(ServiceRequestShowPage, { service_request_id: id });
+  launchEventShowPage(id) {
+    this.navCtrl.push(EventShowPage, { event_id: id });
   }
 
   // Called whenever we drag an element

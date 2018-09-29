@@ -13,5 +13,9 @@ export class EventProvider {
     return events;
   }
 
+  show(id: number) {
+    return this.all().filter((instance)=> instance.id == id)
+  }
+
 
 }

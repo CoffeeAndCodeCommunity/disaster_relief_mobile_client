@@ -1,4 +1,4 @@
-import { ServiceRequestShowPage } from './../ServiceRequestShow/service-request-show';
+import { EventShowPage } from './../event-show/event-show';
 import { TrackedServiceRequestProvider } from './../../providers/tracked-service-request/tracked-service-request';
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
@@ -31,8 +31,8 @@ export class TrackedServiceRequestListPage {
     this.canRender = true;
   }
 
-  launchServiceRequestShowPage(id) {
-    this.navCtrl.push(ServiceRequestShowPage, { service_request_id: id });
+  launchEventShowPage(id) {
+    this.navCtrl.push(EventShowPage, { event_id: id });
   }
 
   consoleLogMe() {

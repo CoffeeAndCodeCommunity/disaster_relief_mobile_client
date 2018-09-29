@@ -14,7 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { EventProvider } from '../providers/event-request/event-request';
 import { QuickViewPage } from '../pages/quick-view/quick-view';
 import { SwingModule } from 'angular2-swing';
-import { ServiceRequestShowPage } from './../pages/ServiceRequestShow/service-request-show';
+import { EventShowPage } from './../pages/event-show/event-show';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { TrackedServiceRequestProvider } from '../providers/tracked-service-request/tracked-service-request';
@@ -34,7 +34,7 @@ import { UserProvider } from '../providers/user/user';
     WelcomePage,
     QuickViewPage,
     TrackedServiceRequestListPage,
-    ServiceRequestShowPage,
+    EventShowPage,
     TabsPage,
     ProfilePage
   ],
@@ -60,7 +60,7 @@ import { UserProvider } from '../providers/user/user';
     QuickViewPage,
     TabsPage,
     TrackedServiceRequestListPage,
-    ServiceRequestShowPage,
+    EventShowPage,
     ProfilePage
   ],
   providers: [
