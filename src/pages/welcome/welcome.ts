@@ -10,15 +10,23 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-  currentUser: any;
-  email: string;
-  password: string;
-
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public app: App,
     private alertCtrl: AlertController,
-  ) {}
+  ) {
 
+  }
+
+  goToSwipe() {
+    this.app.getRootNav().setRoot(TabsPage)
+      .then(() => {
+        console.log('Welcome to your TabsPage!');
+      })
+  }
+
+  navigateToPage(): void {
+    this.goToSwipe();
+  }
 }

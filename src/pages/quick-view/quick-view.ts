@@ -1,9 +1,7 @@
-import { TrackedServiceRequestProvider } from './../../providers/tracked-service-request/tracked-service-request';
-import { ServiceRequestProvider } from "../../providers/service-request/service-request";
+import { EventProvider } from "../../providers/event-request/event-request";
 import { Component, ViewChild, ViewChildren, QueryList } from "@angular/core";
 import { NavController, NavParams, ModalController, App } from "ionic-angular";
 import { ServiceRequestShowPage } from './../ServiceRequestShow/service-request-show';
-import { TranslateService } from '@ngx-translate/core';
 
 import {
   Direction,
@@ -29,16 +27,15 @@ export class QuickViewPage {
 
   srpData: any[];
   stackConfig: StackConfig;
-  cards: any[];
+  events: any[];
+  bgImage: string;
   isLoading: boolean = true;
   noCards: boolean = false;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private serviceRequestProvider: ServiceRequestProvider,
-    private trackedSRProvider: TrackedServiceRequestProvider,
-    public translate: TranslateService
+    private eventsProvider: EventProvider,
   ) {
 
     this.stackConfig = {
@@ -61,14 +58,15 @@ export class QuickViewPage {
   }
 
   ngOnInit(): void {
-    this.serviceRequestProvider.all().subscribe(data => {
-      this.srpData = data;
-      this.populateCards();
-    });
+    const data = this.eventsProvider.all()
+    this.srpData = data;
+    console.log(this.srpData);
+    this.populateCards();
   }
 
   ngAfterViewInit() {
-    this.cards = [];
+
+    this.bgImage = 'https://www.worldvision.org/corporate/wp-content/uploads/sites/2/2017/05/Disaster-Relief-Mobile-reduced.jpg'
 
     setTimeout(() => {
       this.isLoading = false;
@@ -76,8 +74,8 @@ export class QuickViewPage {
   }
 
   consoleLogMe() {
-    console.log("cards", this.cards);
-    console.log("srpData", this.srpData);
+    console.log("1 cards", this.events);
+    console.log("2 srpData", this.srpData);
   }
 
   launchServiceRequestShowPage(id) {
@@ -112,11 +110,12 @@ export class QuickViewPage {
 
   // Add new cards to our array
   populateCards(): void {
+    this.events = [];
     this.srpData.forEach(element => {
-      this.cards.push(element);
+      this.events.push(element);
     });
-
-    console.info("CURRENT STACK:", this.cards.map(c => c.title));
+    console.info("CURRENT STACK:", this.events.map(c => c.name));
+    console.log(this.consoleLogMe())
   }
 
   trackByFn(index, item) {
@@ -125,16 +124,10 @@ export class QuickViewPage {
 
   interested(): void {
     console.log("Interested");
-    let removedCard = this.cards.shift();
-    this.trackedSRProvider.save_request(removedCard.id).subscribe(data => {
-      console.log(data);
-    },
-      error => console.log(error)
-    )
   }
 
   declined(): void {
     console.log("Declined");
-    let removedCard = this.cards.shift();
+    let removedCard = this.events.shift();
   }
 }

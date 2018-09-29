@@ -11,7 +11,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { ServiceRequestProvider } from '../providers/service-request/service-request';
+import { EventProvider } from '../providers/event-request/event-request';
 import { QuickViewPage } from '../pages/quick-view/quick-view';
 import { SwingModule } from 'angular2-swing';
 import { ServiceRequestShowPage } from './../pages/ServiceRequestShow/service-request-show';
@@ -67,7 +67,7 @@ import { UserProvider } from '../providers/user/user';
     StatusBar,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
-    ServiceRequestProvider,
+    EventProvider,
     TrackedServiceRequestProvider,
     SplashScreen,
     UserProvider
