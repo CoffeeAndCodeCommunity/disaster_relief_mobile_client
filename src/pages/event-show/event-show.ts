@@ -7,9 +7,9 @@ import { EventProvider } from "./../../providers/event-request/event-request";
   templateUrl: "event-show.html"
 })
 export class EventShowPage {
-  service_request: any;
+  event: any;
   canRender: boolean = false;
-  serviceId: number;
+  eventId: number;
   bgImage: string;
 
   constructor(
@@ -20,7 +20,8 @@ export class EventShowPage {
   ) {}
 
   ngOnInit() {
-    this.serviceId = this.navParams.get("event_id");
+    this.eventId = this.navParams.get("event_id");
+    this.event = this.eventProvider.show(this.eventId);
     this.renderMe();
   }
 
@@ -31,7 +32,5 @@ export class EventShowPage {
   ionViewDidLoad() {
     this.bgImage = 'https://www.worldvision.org/corporate/wp-content/uploads/sites/2/2017/05/Disaster-Relief-Mobile-reduced.jpg'
     console.log("ionViewDidLoad EventShowPage");
-  }
-
-  
+  }  
 }

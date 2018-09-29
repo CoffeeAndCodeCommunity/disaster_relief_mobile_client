@@ -35,7 +35,7 @@ export class QuickViewPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private eventsProvider: EventProvider,
+    private eventProvider: EventProvider,
   ) {
 
     this.stackConfig = {
@@ -58,10 +58,14 @@ export class QuickViewPage {
   }
 
   ngOnInit(): void {
-    const data = this.eventsProvider.all()
+    const data = this.eventProvider.all()
     this.srpData = data;
     console.log(this.srpData);
     this.populateCards();
+    // this.eventProvider.all().subscribe(data => {
+    //   this.srpData = data;
+    //   this.populateCards();
+    // });
   }
 
   ngAfterViewInit() {
