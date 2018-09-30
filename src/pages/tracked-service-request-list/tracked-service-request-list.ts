@@ -1,5 +1,6 @@
 import { EventShowPage } from './../event-show/event-show';
 import { TrackedServiceRequestProvider } from './../../providers/tracked-service-request/tracked-service-request';
+import { EventProvider } from "../../providers/event-request/event-request";
 import { Component } from "@angular/core";
 import { NavController, NavParams } from "ionic-angular";
 
@@ -14,17 +15,20 @@ export class TrackedServiceRequestListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private trackedSRProvider: TrackedServiceRequestProvider
+    private trackedSRProvider: TrackedServiceRequestProvider,
+    private eventProvider = EventProvider
   ) {}
 
   ngOnInit(): void {
-    this.trackedSRProvider.fetch_list().subscribe(
-      data => {
-        this.list = data.json()
-        this.renderMe();
-      },
-      error => console.log(error)
-    )
+    // this.trackedSRProvider.fetch_list().subscribe(
+    //   data => {
+    //     this.list = data.json()
+    //     this.renderMe();
+    //   },
+    //   error => console.log(error)
+    // )
+    this.eventProvider.fetchList()
+    this.renderMe();
   }
 
   renderMe() {

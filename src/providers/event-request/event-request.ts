@@ -1,11 +1,12 @@
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Injectable()
 export class EventProvider {
-
-  constructor(public http: Http) {
-    console.log('Hello EventProvider Provider');
+  constructor(
+    public http: Http, 
+    public storage: Storage) {
 
   }
 
@@ -131,15 +132,23 @@ export class EventProvider {
     return events;
   }
 
+  save(event): any{
+    let storedEvents = []
+    storedEvents.push(this.storage.get('events'))
+    console.log(storedEvents)
+    storedEvents.push(event)
+    this.storage.set('events', storedEvents)
+ 
+  }
+
+  fetchSaved(): any {
+    // this.storage.get('events')
+  }
+
   show(id: number) {
-    // return this.all().filter((instance)=> instance.id == id)
-    return {
-      "name": "Varning klass 1 högt vattenstånd",
-      "severity": "Moderate",
-      "description": "Vattenståndet stiger i norra delen och når under kvällen ca 80 cm över medelvattenstånd. Under söndagen åter sjunkande.",
-      "id": 10,
-      "imageUrl": "http://cdn.video.nationalgeographic.com/45/af/7613e67c456588dedde7d7da0fae/nw-dly-ds1702001-238-tornado-storm-chasing-vin-spd-op-p170629.jpg"
-    }
+    let object = this.all().filter((instance)=> instance.id === id)
+    console.log(object)
+    return object
 
   }
 

@@ -69,9 +69,6 @@ export class QuickViewPage {
   }
 
   ngAfterViewInit() {
-
-    this.bgImage = 'https://www.worldvision.org/corporate/wp-content/uploads/sites/2/2017/05/Disaster-Relief-Mobile-reduced.jpg'
-
     setTimeout(() => {
       this.isLoading = false;
     }, 3000);
@@ -119,7 +116,6 @@ export class QuickViewPage {
       this.events.push(element);
     });
     console.info("CURRENT STACK:", this.events.map(c => c.name));
-    console.log(this.consoleLogMe())
   }
 
   trackByFn(index, item) {
@@ -127,6 +123,8 @@ export class QuickViewPage {
   }
 
   interested(): void {
+    let removedCard = this.events.shift();
+    this.eventProvider.save(removedCard.id)
     console.log("Interested");
   }
 
